@@ -14,7 +14,7 @@ SRC_URI = " git://github.com/dchvs/i2c-devs.git;branch=lethani"
 S = "${WORKDIR}/git"
 
 K = "${KERNEL_LOCALVERSION}"
-KERNEL_VERSION = "5.0.19-yocto-standard"
+KERNEL_VERSIONX = "5.0.19-yocto-standard"
 
 export KERNEL_SRC="${STAGING_KERNEL_BUILDDIR}"
 export KTF_INCLUDE_DIRS="${STAGING_INCDIR}"
@@ -25,13 +25,13 @@ do_install() {
     install -d ${D}${bindir}
     cp -R ${WORKDIR}/build/user/src/i2c_devs ${D}${bindir}
 
-    install -d ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers
-    cp -R ${S}/kernel/src/i2c-devs.ko ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers
+    install -d ${D}/lib/modules/${KERNEL_VERSIONX}/kernel/drivers
+    cp -R ${S}/kernel/src/i2c-devs.ko ${D}/lib/modules/${KERNEL_VERSIONX}/kernel/drivers
 }
 
 FILES_${PN} = " \
       ${bindir}/i2c_devs \
-      /lib/modules/${KERNEL_VERSION}/kernel/drivers/i2c-devs.ko \
+      /lib/modules/${KERNEL_VERSIONX}/kernel/drivers/i2c-devs.ko \
 "
 
 FILES_${PN}-dev = ""
