@@ -3,12 +3,12 @@ HOMEPAGE = "https://github.com/dchvs/i2c-devs.git"
 SECTION = "kernel"
 LICENSE = "GPLv2"
 
-PR = "r2"
+PR = "r3"
 DEPENDS += "libnl gtest ktf"
 
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0;md5=801f80980d171dd6425610833a22dbe6"
 
-SRCREV = "440b75c260dfc50f12ac11119e9c24f0e10eb41f"
+SRCREV = "22d9ddf14ed32f8af1c026d1a149bb1bd888693d"
 SRC_URI = " git://github.com/dchvs/i2c-devs.git;branch=lethani"
 
 S = "${WORKDIR}/git"
@@ -23,13 +23,13 @@ do_install() {
     install -d ${D}${bindir}
     cp -R ${WORKDIR}/build/user/src/i2c_devs ${D}${bindir}
 
-    install -d ${D}/lib/modules/5.0.19-yocto-standard/kernel/drivers
-    cp -R ${S}/kernel/src/i2c-devs.ko ${D}/lib/modules/5.0.19-yocto-standard/kernel/drivers
+    install -d ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers
+    cp -R ${S}/kernel/src/i2c-devs.ko ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers
 }
 
 FILES_${PN} = " \
       ${bindir}/i2c_devs \
-      /lib/modules/5.0.19-yocto-standard/kernel/drivers/i2c-devs.ko \
+      /lib/modules/${KERNEL_VERSION}/kernel/drivers/i2c-devs.ko \
 "
 
 FILES_${PN}-dev = ""
