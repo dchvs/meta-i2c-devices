@@ -8,7 +8,7 @@ DEPENDS += "libnl gtest ktf"
 
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0;md5=801f80980d171dd6425610833a22dbe6"
 
-SRCREV = "22d9ddf14ed32f8af1c026d1a149bb1bd888693d"
+SRCREV = "2deb9c60ac57ff88f1bbff2c5adf53395747ad0e"
 SRC_URI = " git://github.com/dchvs/i2c-devs.git;branch=lethani"
 
 S = "${WORKDIR}/git"
