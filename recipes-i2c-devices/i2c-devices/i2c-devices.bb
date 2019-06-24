@@ -37,3 +37,5 @@ FILES_${PN}-staticdev = ""
 PACKAGES = "${PN}-dbg ${PN} ${PN}-doc ${PN}-staticdev ${PN}-dev ${PN}-locale"
 INSANE_SKIP_${PN} = " dev-deps"
 RDEPENDS_${PN} = " python ktf"
+
+KERNEL_MODULE_AUTOLOAD += "i2c-devs"
